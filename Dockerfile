@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-RUN sudo apt-get install libatlas-base-dev libmpich2-dev gfortran
+RUN apt-get install libatlas-base-dev libmpich2-dev gfortran
 
 RUN mkdir -p /usr/src/hpl
 COPY hpl-2.3.tar.gz /usr/src/hpl
