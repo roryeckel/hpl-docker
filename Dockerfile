@@ -14,6 +14,6 @@ RUN tar xf hpl-2.3.tar.gz
 WORKDIR /usr/local/src/hpl/hpl-2.3
 COPY Make.docker /usr/local/src/hpl/hpl-2.3
 
-RUN make arch=docker
+RUN make arch=docker dumpmachine=$(mpicc -dumpmachine)
 
 RUN ls -al

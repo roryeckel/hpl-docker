@@ -56,7 +56,6 @@ LN_S         = ln -s
 MKDIR        = mkdir
 RM           = /bin/rm -f
 TOUCH        = touch
-DUMPMACHINE  = $(mpicc -dumpmachine)
 #
 # ----------------------------------------------------------------------
 # - Platform identifier ------------------------------------------------
