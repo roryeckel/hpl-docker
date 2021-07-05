@@ -61,7 +61,7 @@ TOUCH        = touch
 # - Platform identifier ------------------------------------------------
 # ----------------------------------------------------------------------
 #
-ARCH         = docker
+ARCH         = $(ARCH)
 #
 # ----------------------------------------------------------------------
 # - HPL Directory Structure / HPL library ------------------------------
@@ -81,7 +81,7 @@ HPLlib       = $(LIBdir)/libhpl.a
 # header files,  MPlib  is defined  to be the name of  the library to be 
 # used. The variable MPdir is only used for defining MPinc and MPlib.
 #
-MPdir        = /usr/lib/$(DUMPMACHINE)/openmpi
+MPdir        = /usr/lib/$(ARCH)/openmpi
 MPinc        = -I $(TOPdir)/include
 MPlib        = $(TOPdir)/lib/libmpi.so
 #
@@ -92,8 +92,8 @@ MPlib        = $(TOPdir)/lib/libmpi.so
 # header files,  LAlib  is defined  to be the name of  the library to be 
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
-LAdir        = /usr/lib/$(DUMPMACHINE)
-LAinc        = /usr/include/$(DUMPMACHINE)/atlas
+LAdir        = /usr/lib/$(ARCH)
+LAinc        = /usr/include/$(ARCH)/atlas
 LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
 #
 # ----------------------------------------------------------------------
