@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-RUN apt-get install libatlas-base-dev openmpi-bin
+RUN apt-get update && apt-get install libatlas-base-dev openmpi-bin
 
 RUN mkdir -p /usr/local/src/hpl
 COPY hpl-2.3.tar.gz /usr/local/src/hpl
