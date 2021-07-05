@@ -11,11 +11,11 @@ RUN tar xf hpl-2.3.tar.gz
 #WORKDIR /usr/local/src/hpl/hpl-2.3/setup
 #RUN sh make_generic
 
-ENV arch = $(mpicc -dumpmachine)
+ARG DUMPMACHINE
 
 WORKDIR /usr/local/src/hpl/hpl-2.3
-COPY Make /usr/local/src/hpl/hpl-2.3/Make.$(arch)
+COPY Make.docker /usr/local/src/hpl/hpl-2.3
 
-RUN make arch=$(arch)
+RUN DUMPMACHINE=${DUMPMACHINE} && make arch=docker
 
 RUN ls -al
