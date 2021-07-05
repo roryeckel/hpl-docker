@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-RUN apt-get update && apt-get install libatlas-base-dev openmpi-bin openssh-server
+RUN apt-get update && apt-get install -y libatlas-base-dev openmpi-bin openssh-server
 
 RUN mkdir -p /usr/local/src/hpl
 COPY hpl-2.3.tar.gz /usr/local/src/hpl
