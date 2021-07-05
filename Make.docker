@@ -56,6 +56,7 @@ LN_S         = ln -s
 MKDIR        = mkdir
 RM           = /bin/rm -f
 TOUCH        = touch
+DUMPMACHINE  = $(mpicc -dumpmachine)
 #
 # ----------------------------------------------------------------------
 # - Platform identifier ------------------------------------------------
@@ -81,7 +82,7 @@ HPLlib       = $(LIBdir)/libhpl.a
 # header files,  MPlib  is defined  to be the name of  the library to be 
 # used. The variable MPdir is only used for defining MPinc and MPlib.
 #
-MPdir        = /usr/lib/$(mpicc -dumpmachine)/openmpi
+MPdir        = /usr/lib/$(DUMPMACHINE)/openmpi
 MPinc        = -I $(TOPdir)/include
 MPlib        = $(TOPdir)/lib/libmpi.so
 #
@@ -92,8 +93,8 @@ MPlib        = $(TOPdir)/lib/libmpi.so
 # header files,  LAlib  is defined  to be the name of  the library to be 
 # used. The variable LAdir is only used for defining LAinc and LAlib.
 #
-LAdir        = /usr/lib/$(mpicc -dumpmachine)
-LAinc        = /usr/include/$(mpicc -dumpmachine)/atlas
+LAdir        = /usr/lib/$(DUMPMACHINE)
+LAinc        = /usr/include/$(DUMPMACHINE)/atlas
 LAlib        = $(LAdir)/libf77blas.a $(LAdir)/libatlas.a
 #
 # ----------------------------------------------------------------------
