@@ -5,6 +5,6 @@ services:
         image: hpl
         network_mode: "host"
         ports:
-            - "2222:localhost:22"
+            - "127.0.0.1:2222:22"
         volumes:
             - /home/ubuntu/.ssh/authorized_keys:/root/.ssh/authorized_keys
