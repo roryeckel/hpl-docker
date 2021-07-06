@@ -1,6 +1,7 @@
 services:
     hpl:
         image: hpl
+        network_mode: "host"
         ports:
             - "2022:localhost:22"
         volumes:
