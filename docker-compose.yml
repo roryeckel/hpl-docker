@@ -12,4 +12,4 @@ services:
         ports:
             - "2222:22"
         volumes:
-            - /home/ubuntu/.ssh/:/root/.ssh/
+            - /home/ubuntu/.ssh/:/root/.ssh/:ro

@@ -17,7 +17,6 @@ RUN DUMPMACHINE=${DUMPMACHINE} && make arch=docker
 
 # Setup SSH
 RUN mkdir /var/run/sshd
-RUN echo "root:root" | chpasswd
 RUN echo "AuthenticationMethods publickey" >> /etc/ssh/sshd_config
 EXPOSE 22
 
