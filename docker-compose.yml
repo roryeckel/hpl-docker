@@ -11,5 +11,3 @@ services:
             - default
         ports:
             - "2222:22"
-        volumes:
-            - /home/ubuntu/.ssh/:/root/.ssh/:ro
