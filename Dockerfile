@@ -17,9 +17,11 @@ RUN DUMPMACHINE=${DUMPMACHINE} && make arch=docker
 
 # Setup SSH
 RUN mkdir /var/run/sshd
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+RUN echo "root:root" | chpasswd
+RUN echo "AuthenticationMethods publickey" >> /etc/ssh/sshd_config
 EXPOSE 22
 
 # Run
+#ENTRYPOINT [ "/usr/sbin/sshd", "-De" ]
 COPY run.sh /root
-ENTRYPOINT [ "/usr/sbin/sshd", "-D" ]
+ENTRYPOINT [ "bash", "/root/run.sh" ]

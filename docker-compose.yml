@@ -1,10 +1,15 @@
 version: "3"
 
+networks:
+    default:
+        external: false
+
 services:
     hpl:
         image: hpl
-        network_mode: "host"
+        networks:
+            - default
         ports:
-            - "127.0.0.1:2222:22"
+            - "2222:22"
         volumes:
-            - /home/ubuntu/.ssh/authorized_keys:/root/.ssh/authorized_keys
+            - /home/ubuntu/.ssh/:/root/.ssh/

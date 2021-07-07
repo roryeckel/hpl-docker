@@ -1,3 +1,4 @@
 #!/bin/bash
 
-/usr/sbin/sshd -D
+cat /root/.ssh/authorized_keys
+/usr/sbin/sshd -De
