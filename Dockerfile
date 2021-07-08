@@ -5,15 +5,13 @@ RUN apt-get update && apt-get install -y build-essential libatlas-base-dev openm
 
 # Copy HPL
 RUN mkdir -p /usr/local/src/hpl
-COPY hpl-2.3.tar.gz /usr/local/src/hpl
 WORKDIR /usr/local/src/hpl
-RUN tar xf hpl-2.3.tar.gz
+RUN wget https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz && tar xf hpl-2.3.tar.gz
 
 # Make HPL
-ARG DUMPMACHINE
 WORKDIR /usr/local/src/hpl/hpl-2.3
 COPY Make.docker /usr/local/src/hpl/hpl-2.3
-RUN DUMPMACHINE=${DUMPMACHINE} && make arch=docker
+RUN DUMPMACHINE=$(mpicc -dumpmachine) && make arch=docker
 
 # Setup SSH
 RUN mkdir /var/run/sshd
