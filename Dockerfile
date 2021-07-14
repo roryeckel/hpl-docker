@@ -16,8 +16,8 @@ RUN export DUMPMACHINE=$(mpicc -dumpmachine) && make arch=docker
 # Setup SSH
 RUN mkdir /var/run/sshd
 RUN echo "AuthenticationMethods publickey" >> /etc/ssh/sshd_config
-RUN echo "Port 2222" >> /etc/ssh/sshd_config
-EXPOSE 2222
+RUN echo "Port 22" >> /etc/ssh/sshd_config
+EXPOSE 22
 
 # Run
 #ENTRYPOINT [ "/usr/sbin/sshd", "-De" ]
