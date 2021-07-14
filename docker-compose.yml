@@ -1,16 +1,17 @@
 version: "3"
 
-networks:
-    default:
-        external: false
+#networks:
+#    default:
+#        external: false
 
 services:
     hpl:
         image: hpl
-        networks:
-            - default
-        ports:
-            - "2222:22"
-        environment:
-            - AUTHORIZED_KEYS=
-            - KNOWN_HOSTS=
+        network_mode: host
+#        networks:
+#            - default
+#        ports:
+#            - "2222:22"
+#        environment:
+#            - AUTHORIZED_KEYS=
+#            - KNOWN_HOSTS=
