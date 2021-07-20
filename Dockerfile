@@ -12,6 +12,7 @@ RUN wget https://www.netlib.org/benchmark/hpl/hpl-2.3.tar.gz && tar xf hpl-2.3.t
 WORKDIR /usr/local/src/hpl/hpl-2.3
 COPY Make.docker /usr/local/src/hpl/hpl-2.3
 RUN export DUMPMACHINE=$(mpicc -dumpmachine) && make arch=docker
+RUN rm /usr/local/src/hpl/hpl-2.3/bin/docker/HPL.dat
 
 # Setup SSH
 RUN mkdir /var/run/sshd
